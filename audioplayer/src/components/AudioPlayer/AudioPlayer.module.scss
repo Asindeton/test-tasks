@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #fffdfd;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  .navigationButtonArea {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mainInformationDataArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 300px;
+    overflow: hidden;
+
+    .volumeAreaWrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 5px;
+      input {
+        width: 100%;
+      }
+    }
+    .progress {
+      transform: translateY(0);
+      transition: all 0.5s;
+      &.hidden {
+        transform: translateY(100px);
+      }
+    }
+  }
+
+  .playImageWrapper {
+    width: 160px;
+    position: relative;
+  }
+  .playImage {
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    right: 0;
+    transform: translate(50%, -20%);
+    user-select: none;
+    animation-play-state: paused;
+
+    animation-name: play;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    &.animate {
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes play {
+  from {
+    transform: translate(50%, -20%) rotate(0);
+  }
+
+  to {
+    transform: translate(50%, -20%) rotate(360deg);
+  }
+}
